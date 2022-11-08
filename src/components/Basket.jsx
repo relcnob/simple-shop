@@ -1,8 +1,13 @@
-function Basket() {
+function Basket(props) {
   return (
     <aside className="Basket">
       <ul>
-        <li>SomeProduct x 3, 1234,- </li>
+        {props.cart.map((item) => (
+          <li key={item.id}>
+            {item.productdisplayname} x {item.amount},{" "}
+            {item.price * item.amount},-{" "}
+          </li>
+        ))}
       </ul>
       <button>BUY NOW</button>
     </aside>

@@ -50,4 +50,11 @@ img {
 
 .Basket {
   background-color: rgba(204, 204, 204, 0.1);
+  padding: 1rem;
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 1rem 0;
+  }
 }
