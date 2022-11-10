@@ -33,7 +33,6 @@ function App() {
         return item;
       });
       const filtered = subtracted.filter((item) => item.amount > 0);
-
       return filtered;
     });
   }
