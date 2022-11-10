@@ -13,6 +13,7 @@ function Basket(props) {
           <li key={item.id}>
             {item.productdisplayname} x {item.amount},{" "}
             {item.price * item.amount},-{" "}
+            <button onClick={() => props.removeFromCart(item.id)}> X </button>
           </li>
         ))}
       </ul>

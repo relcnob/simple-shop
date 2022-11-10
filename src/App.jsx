@@ -8,7 +8,6 @@ function App() {
   const [cart, setCart] = useState([]);
   function addToCart(data) {
     console.log("addToCart");
-    // do we have the product
     if (cart.find((entry) => entry.id === data.id)) {
       setCart((oldCart) =>
         oldCart.map((entry) => {
@@ -23,8 +22,20 @@ function App() {
     } else {
       setCart((oldCart) => oldCart.concat({ ...data, amount: 1 }));
     }
-    // we have product
-    // we dont
+  }
+  function removeFromCart(id) {
+    console.log("removing", id);
+    setCart((oldCart) => {
+      const subtracted = oldCart.map((item) => {
+        if (item.id === id) {
+          return { ...item, amount: item.amount - 1 };
+        }
+        return item;
+      });
+      const filtered = subtracted.filter((item) => item.amount > 0);
+
+      return filtered;
+    });
   }
   useEffect(() => {
     async function getData() {
@@ -38,7 +49,7 @@ function App() {
     <div className="App">
       <Header />
       <Products products={products} addToCart={addToCart} />
-      <Basket products={products} cart={cart} />
+      <Basket products={products} cart={cart} removeFromCart={removeFromCart} />
     </div>
   );
 }
