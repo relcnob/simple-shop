@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import Header from "./components/header";
+import Header from "./components/Header";
 import Products from "./components/Products";
 import Basket from "./components/Basket";
 function App() {
